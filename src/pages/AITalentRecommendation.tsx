@@ -204,7 +204,7 @@ const candidates = [
     score: 95,
     tags: ["Tiềm năng cao", "Sẵn sàng bổ nhiệm"],
     highlights: ["15 năm kinh nghiệm khu vực công", "Lãnh đạo chuyển đổi số ngành tài chính", "Tiến sĩ Chính sách công"],
-    avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png",
     details: {
       competency: 95,
       experience: 90,
