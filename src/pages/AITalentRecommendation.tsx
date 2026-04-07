@@ -204,7 +204,7 @@ const candidates = [
     score: 95,
     tags: ["Tiềm năng cao", "Sẵn sàng bổ nhiệm"],
     highlights: ["15 năm kinh nghiệm khu vực công", "Lãnh đạo chuyển đổi số ngành tài chính", "Tiến sĩ Chính sách công"],
-    avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png",
     details: {
       competency: 95,
       experience: 90,
@@ -220,7 +220,7 @@ const candidates = [
     score: 88,
     tags: ["Ngôi sao đang lên", "Cần bồi dưỡng thêm"],
     highlights: ["10 năm kinh nghiệm quản lý cấp phòng", "Quản lý thành công ngân sách 500 tỷ", "Thạc sĩ Kinh tế"],
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/jLqfxF2B/2026-04-07-21-33-58.png",
     details: {
       competency: 85,
       experience: 80,
@@ -236,7 +236,7 @@ const candidates = [
     score: 82,
     tags: ["Chuyên gia kỹ thuật"],
     highlights: ["20 năm kinh nghiệm chuyên sâu", "Tác giả 5 tiêu chuẩn quốc gia", "Cử nhân Tài chính"],
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/SJQ9SvRB/2026-04-07-21-34-16.png",
     details: {
       competency: 90,
       experience: 95,
@@ -252,7 +252,7 @@ const candidates = [
     score: 98,
     tags: ["Tầm nhìn vĩ mô", "Quy hoạch Bộ trưởng"],
     highlights: ["25 năm kinh nghiệm quản lý nhà nước", "Chủ trì đàm phán tài chính quốc tế", "Tiến sĩ Kinh tế học"],
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/bsYnyBrW/2026-04-07-21-34-32.png",
     details: {
       competency: 98,
       experience: 100,
