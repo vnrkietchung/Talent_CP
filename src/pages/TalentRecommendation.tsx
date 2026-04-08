@@ -204,7 +204,7 @@ const candidates = [
     score: 95,
     tags: ["Tiềm năng cao", "Sẵn sàng (0–6 tháng)"],
     highlights: ["15 năm kinh nghiệm khu vực công", "Lãnh đạo chuyển đổi số ngành tài chính", "Tiến sĩ Chính sách công"],
-    avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png",
     details: {
       competency: 95,
       experience: 90,
@@ -220,7 +220,7 @@ const candidates = [
     score: 88,
     tags: ["Ngôi sao đang lên", "Sẵn sàng có điều kiện (6–12 tháng)"],
     highlights: ["10 năm kinh nghiệm quản lý cấp phòng", "Quản lý thành công ngân sách 500 tỷ", "Thạc sĩ Kinh tế"],
-    avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/jLqfxF2B/2026-04-07-21-33-58.png",
     details: {
       competency: 85,
       experience: 80,
@@ -236,7 +236,7 @@ const candidates = [
     score: 82,
     tags: ["Chuyên gia kỹ thuật"],
     highlights: ["20 năm kinh nghiệm chuyên sâu", "Tác giả 5 tiêu chuẩn quốc gia", "Cử nhân Tài chính"],
-    avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/SJQ9SvRB/2026-04-07-21-34-16.png",
     details: {
       competency: 90,
       experience: 95,
@@ -268,7 +268,7 @@ const candidates = [
     score: 94,
     tags: ["Chuyên gia điều hành", "Nữ lãnh đạo"],
     highlights: ["Lãnh đạo số hóa toàn diện ngành Thuế", "Vượt 15% chỉ tiêu thu ngân sách 3 năm liền", "Thạc sĩ Tài chính công"],
-    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/bsYnyBrW/2026-04-07-21-34-32.png",
     details: {
       competency: 95,
       experience: 90,
@@ -284,7 +284,7 @@ const candidates = [
     score: 89,
     tags: ["Kinh nghiệm thực tiễn", "Nguồn kế cận"],
     highlights: ["15 năm công tác trong ngành Thuế", "Xây dựng hệ thống hóa đơn điện tử", "Thạc sĩ Quản trị Kinh doanh"],
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://i.postimg.cc/yk6R1bxQ/2026-04-07-21-34-50.png",
     details: {
       competency: 88,
       experience: 92,
