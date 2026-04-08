@@ -28,24 +28,24 @@ const talentGaps = [
 
 const aiRecommendations = {
   "POS-001": [
-    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", score: 95, tags: ["Sẵn sàng (0–6 tháng)", "Tiềm năng cao"], avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["15 năm kinh nghiệm", "Lãnh đạo chuyển đổi số", "Chiến sĩ thi đua"], details: { competency: 95, experience: 90, education: 100, performance: 95 }, explanation: "Ứng viên thể hiện năng lực lãnh đạo xuất sắc trong các sáng kiến chuyển đổi số." },
-    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", score: 88, tags: ["Sẵn sàng có điều kiện (6–12 tháng)", "Tài chính"], avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Quản lý ngân sách 500 tỷ", "Thạc sĩ Kinh tế", "Chiến sĩ thi đua"], details: { competency: 85, experience: 80, education: 90, performance: 95 }, explanation: "Nền tảng vận hành vững chắc với kết quả đánh giá hiệu suất xuất sắc gần đây." },
-    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", score: 82, tags: ["Nguồn kế cận", "Chuyển đổi số"], avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Tác giả 5 tiêu chuẩn", "Cử nhân Tài chính"], details: { competency: 90, experience: 95, education: 80, performance: 85 }, explanation: "Chuyên môn kỹ thuật vượt trội trong lĩnh vực Chuyển đổi số." },
+    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", score: 95, tags: ["Sẵn sàng (0–6 tháng)", "Tiềm năng cao"], avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png", highlights: ["15 năm kinh nghiệm", "Lãnh đạo chuyển đổi số", "Chiến sĩ thi đua"], details: { competency: 95, experience: 90, education: 100, performance: 95 }, explanation: "Ứng viên thể hiện năng lực lãnh đạo xuất sắc trong các sáng kiến chuyển đổi số." },
+    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", score: 88, tags: ["Sẵn sàng có điều kiện (6–12 tháng)", "Tài chính"], avatar: "https://i.postimg.cc/jLqfxF2B/2026-04-07-21-33-58.png", highlights: ["Quản lý ngân sách 500 tỷ", "Thạc sĩ Kinh tế", "Chiến sĩ thi đua"], details: { competency: 85, experience: 80, education: 90, performance: 95 }, explanation: "Nền tảng vận hành vững chắc với kết quả đánh giá hiệu suất xuất sắc gần đây." },
+    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", score: 82, tags: ["Nguồn kế cận", "Chuyển đổi số"], avatar: "https://i.postimg.cc/SJQ9SvRB/2026-04-07-21-34-16.png", highlights: ["Tác giả 5 tiêu chuẩn", "Cử nhân Tài chính"], details: { competency: 90, experience: 95, education: 80, performance: 85 }, explanation: "Chuyên môn kỹ thuật vượt trội trong lĩnh vực Chuyển đổi số." },
   ]
 };
 
 const pipelineData = {
   readyNow: [
-    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png" },
     { id: 7, name: "Lê Minh Hưng", position: "Thủ tướng Chính phủ", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&h=150&auto=format&fit=crop" },
   ],
   ready1to3: [
-    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop" },
-    { id: 5, name: "Lê Thị E", position: "Cục trưởng Cục Thuế", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", avatar: "https://i.postimg.cc/jLqfxF2B/2026-04-07-21-33-58.png" },
+    { id: 5, name: "Lê Thị E", position: "Cục trưởng Cục Thuế", avatar: "https://i.postimg.cc/bsYnyBrW/2026-04-07-21-34-32.png" },
   ],
   notReady: [
-    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop" },
-    { id: 6, name: "Hoàng Văn F", position: "Phó Cục trưởng Cục Thuế", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", avatar: "https://i.postimg.cc/SJQ9SvRB/2026-04-07-21-34-16.png" },
+    { id: 6, name: "Hoàng Văn F", position: "Phó Cục trưởng Cục Thuế", avatar: "https://i.postimg.cc/yk6R1bxQ/2026-04-07-21-34-50.png" },
   ]
 };
 

@@ -16,7 +16,7 @@ export function Sidebar({ activePath, onNavigate, collapsed, setCollapsed }: Sid
     { id: "talent-recommendation", label: "Đề xuất nhân tài", icon: BrainCircuit },
     { id: "relationship-network", label: "Mạng lưới quan hệ", icon: Network },
     { id: "work-history", label: "Lịch sử công tác", icon: History },
-    { id: "training-development", label: "Đào tạo - Bồi dưỡng", icon: GraduationCap },
+    { id: "training-development", label: "Bồi dưỡng & Phát triển", icon: GraduationCap },
   ];
 
   return (

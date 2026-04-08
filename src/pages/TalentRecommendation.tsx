@@ -200,58 +200,105 @@ const candidates = [
   {
     id: 1,
     name: "Nguyễn Văn A",
-    position: "Phó Giám đốc Sở Tài chính",
+    position: "Phó Vụ trưởng Vụ Ngân sách Nhà nước - Bộ Tài chính",
     score: 95,
     tags: ["Tiềm năng cao", "Sẵn sàng (0–6 tháng)"],
-    highlights: ["15 năm kinh nghiệm khu vực công", "Lãnh đạo chuyển đổi số ngành tài chính", "Tiến sĩ Chính sách công"],
-    avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
+    highlights: [
+      "15 năm kinh nghiệm hoạch định chính sách tài chính công",
+      "Tham gia xây dựng Luật Ngân sách sửa đổi",
+      "Tiến sĩ Chính sách công"
+    ],
+    avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png",
     details: {
       competency: 95,
       experience: 90,
       education: 100,
       performance: 95
     },
-    explanation: "Ứng viên thể hiện năng lực lãnh đạo xuất sắc trong các sáng kiến chuyển đổi số. Được đề xuất cao cho vị trí Giám đốc Sở nhờ thành tích đã được chứng minh trong việc điều phối liên ngành."
+    explanation: "Ứng viên có năng lực xây dựng và điều phối chính sách tài chính ở cấp Trung ương. Được đề xuất cho vị trí Vụ trưởng hoặc Thứ trưởng trong tương lai gần.",
+    timeline: [
+      { year: "2021 - Nay", title: "Phó Vụ trưởng Vụ Ngân sách Nhà nước", org: "Bộ Tài chính", type: "leadership", highlight: true },
+      { year: "2016 - 2021", title: "Trưởng phòng Quản lý Ngân sách", org: "Bộ Tài chính", type: "leadership", highlight: false },
+      { year: "2010 - 2016", title: "Phó Trưởng phòng", org: "Bộ Tài chính", type: "mid", highlight: false },
+      { year: "2005 - 2010", title: "Chuyên viên", org: "Bộ Tài chính", type: "entry", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Hoạch định chính sách tài chính công", "Điều phối ngân sách Trung ương"],
+      potentialRoles: ["Vụ trưởng Vụ Ngân sách Nhà nước", "Thứ trưởng Bộ Tài chính"],
+      risk: { level: "Thấp", explanation: "Hồ sơ trong sạch, năng lực chuyên môn vững vàng." }
+    }
   },
   {
     id: 2,
     name: "Trần Thị B",
-    position: "Trưởng phòng Ngân sách",
+    position: "Phó Cục trưởng Cục Quản lý Ngân sách - Bộ Tài chính",
     score: 88,
     tags: ["Ngôi sao đang lên", "Sẵn sàng có điều kiện (6–12 tháng)"],
-    highlights: ["10 năm kinh nghiệm quản lý cấp phòng", "Quản lý thành công ngân sách 500 tỷ", "Thạc sĩ Kinh tế"],
-    avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop",
+    highlights: [
+      "10 năm quản lý ngân sách cấp quốc gia",
+      "Điều phối ngân sách trên 10.000 tỷ",
+      "Thạc sĩ Kinh tế"
+    ],
+    avatar: "https://i.postimg.cc/jLqfxF2B/2026-04-07-21-33-58.png",
     details: {
       competency: 85,
       experience: 80,
       education: 90,
       performance: 95
     },
-    explanation: "Nền tảng vận hành vững chắc với kết quả đánh giá hiệu suất xuất sắc gần đây. Cho thấy tiềm năng lớn cho các vai trò lãnh đạo cao hơn nhưng có thể cần thêm kinh nghiệm thực tiễn ở cấp Sở."
+    explanation: "Có nền tảng vận hành và quản trị ngân sách mạnh ở cấp Trung ương. Cần thêm trải nghiệm điều hành liên Bộ để sẵn sàng cho vai trò cao hơn.",
+    timeline: [
+      { year: "2022 - Nay", title: "Phó Cục trưởng Cục Quản lý Ngân sách", org: "Bộ Tài chính", type: "leadership", highlight: true },
+      { year: "2018 - 2022", title: "Trưởng phòng Tổng hợp Ngân sách", org: "Bộ Tài chính", type: "leadership", highlight: false },
+      { year: "2012 - 2018", title: "Chuyên viên chính", org: "Bộ Tài chính", type: "senior", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Quản lý ngân sách quốc gia", "Kỹ năng vận hành hệ thống tài chính"],
+      potentialRoles: ["Cục trưởng Cục Quản lý Ngân sách", "Vụ trưởng các Vụ chuyên môn"],
+      risk: { level: "Thấp", explanation: "Cần thêm thời gian thử thách ở các vị trí điều hành trực tiếp." }
+    }
   },
   {
     id: 3,
     name: "Lê Hoàng C",
-    position: "Chuyên viên Cao cấp",
+    position: "Chuyên gia cao cấp - Hội đồng Tư vấn Chính sách Tài chính Quốc gia",
     score: 82,
     tags: ["Chuyên gia kỹ thuật"],
-    highlights: ["20 năm kinh nghiệm chuyên sâu", "Tác giả 5 tiêu chuẩn quốc gia", "Cử nhân Tài chính"],
-    avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop",
+    highlights: [
+      "20 năm nghiên cứu chính sách tài chính vĩ mô",
+      "Tham gia xây dựng 5 chiến lược quốc gia",
+      "Cử nhân Tài chính"
+    ],
+    avatar: "https://i.postimg.cc/SJQ9SvRB/2026-04-07-21-34-16.png",
     details: {
       competency: 90,
       experience: 95,
       education: 80,
       performance: 85
     },
-    explanation: "Chuyên môn kỹ thuật vượt trội trong lĩnh vực. Phù hợp nhất cho các vai trò cố vấn hoặc lãnh đạo chuyên môn thay vì quản lý điều hành chung."
+    explanation: "Chuyên gia đầu ngành về chính sách tài chính. Phù hợp vai trò cố vấn chiến lược hoặc chuyên gia cấp cao hơn là quản lý điều hành.",
+    timeline: [
+      { year: "2019 - Nay", title: "Chuyên gia cao cấp", org: "Hội đồng Tư vấn Chính sách Tài chính Quốc gia", type: "senior", highlight: true },
+      { year: "2010 - 2019", title: "Cố vấn chính sách vĩ mô", org: "Bộ Tài chính", type: "senior", highlight: false },
+      { year: "2000 - 2010", title: "Nghiên cứu viên cao cấp", org: "Viện Chiến lược Tài chính", type: "mid", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Nghiên cứu chính sách vĩ mô", "Tư vấn chiến lược quốc gia"],
+      potentialRoles: ["Thành viên Hội đồng Tư vấn Chính sách", "Chuyên gia cấp cao Chính phủ"],
+      risk: { level: "Rất thấp", explanation: "Tập trung vào chuyên môn sâu, ít rủi ro về quản lý điều hành." }
+    }
   },
   {
     id: 4,
     name: "Phạm Văn D",
-    position: "Thứ trưởng Thường trực Bộ Tài chính",
+    position: "Thứ trưởng Bộ Tài chính",
     score: 98,
     tags: ["Tầm nhìn vĩ mô", "Quy hoạch Bộ trưởng"],
-    highlights: ["25 năm kinh nghiệm quản lý nhà nước", "Chủ trì đàm phán tài chính quốc tế", "Tiến sĩ Kinh tế học"],
+    highlights: [
+      "25 năm quản lý nhà nước cấp Trung ương",
+      "Chủ trì đàm phán tài chính quốc tế (IMF, WB)",
+      "Tiến sĩ Kinh tế học"
+    ],
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 98,
@@ -259,47 +306,90 @@ const candidates = [
       education: 100,
       performance: 96
     },
-    explanation: "Ứng viên có năng lực hoạch định chính sách vĩ mô xuất sắc. Đã kinh qua các vị trí trọng yếu ở cả địa phương và trung ương. Hoàn toàn đáp ứng các tiêu chuẩn khắt khe cho vị trí Bộ trưởng."
+    explanation: "Nhà hoạch định chính sách vĩ mô xuất sắc, có kinh nghiệm quốc tế sâu rộng. Đáp ứng đầy đủ tiêu chuẩn cho vị trí Bộ trưởng.",
+    timeline: [
+      { year: "2018 - Nay", title: "Thứ trưởng", org: "Bộ Tài chính", type: "leadership", highlight: true },
+      { year: "2014 - 2018", title: "Vụ trưởng Vụ Hợp tác quốc tế", org: "Bộ Tài chính", type: "leadership", highlight: false },
+      { year: "2010 - 2014", title: "Phó Vụ trưởng", org: "Bộ Tài chính", type: "leadership", highlight: false },
+      { year: "2000 - 2010", title: "Trưởng phòng / Chuyên viên", org: "Bộ Tài chính", type: "mid", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Lãnh đạo vĩ mô", "Đàm phán tài chính quốc tế"],
+      potentialRoles: ["Bộ trưởng Bộ Tài chính", "Lãnh đạo Ban Kinh tế Trung ương"],
+      risk: { level: "Rất thấp", explanation: "Hồ sơ toàn diện, uy tín quốc tế cao." }
+    }
   },
   {
     id: 5,
     name: "Lê Thị E",
-    position: "Cục trưởng Cục Thuế",
+    position: "Cục trưởng Cục Thuế - Bộ Tài chính",
     score: 94,
     tags: ["Chuyên gia điều hành", "Nữ lãnh đạo"],
-    highlights: ["Lãnh đạo số hóa toàn diện ngành Thuế", "Vượt 15% chỉ tiêu thu ngân sách 3 năm liền", "Thạc sĩ Tài chính công"],
-    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=150&h=150&auto=format&fit=crop",
+    highlights: [
+      "Lãnh đạo chuyển đổi số ngành Thuế toàn quốc",
+      "Vượt 15% chỉ tiêu thu ngân sách 3 năm liên tiếp",
+      "Thạc sĩ Tài chính công"
+    ],
+    avatar: "https://i.postimg.cc/bsYnyBrW/2026-04-07-21-34-32.png",
     details: {
       competency: 95,
       experience: 90,
       education: 95,
       performance: 98
     },
-    explanation: "Nữ lãnh đạo có thành tích điều hành thực tiễn ấn tượng. Năng lực chuyển đổi số và quản lý sự thay đổi rất cao. Là ứng viên sáng giá cho vị trí Thứ trưởng phụ trách khối thu."
+    explanation: "Nữ lãnh đạo có năng lực điều hành thực tiễn mạnh và thành tích vượt trội. Là ứng viên tiềm năng cho vị trí Thứ trưởng phụ trách lĩnh vực thu.",
+    timeline: [
+      { year: "2020 - Nay", title: "Cục trưởng Cục Thuế", org: "Bộ Tài chính", type: "leadership", highlight: true },
+      { year: "2016 - 2020", title: "Phó Cục trưởng Cục Thuế", org: "Bộ Tài chính", type: "leadership", highlight: false },
+      { year: "2010 - 2016", title: "Trưởng phòng Quản lý Thuế", org: "Cục Thuế TP. Hà Nội", type: "leadership", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Điều hành thực tiễn mạnh", "Lãnh đạo chuyển đổi số ngành Thuế"],
+      potentialRoles: ["Thứ trưởng Bộ Tài chính", "Tổng cục trưởng Tổng cục Thuế"],
+      risk: { level: "Thấp", explanation: "Năng lực điều hành đã được khẳng định qua kết quả thu ngân sách." }
+    }
   },
   {
     id: 6,
     name: "Hoàng Văn F",
-    position: "Phó Cục trưởng Cục Thuế",
+    position: "Phó Cục trưởng Cục Thuế - Bộ Tài chính",
     score: 89,
     tags: ["Kinh nghiệm thực tiễn", "Nguồn kế cận"],
-    highlights: ["15 năm công tác trong ngành Thuế", "Xây dựng hệ thống hóa đơn điện tử", "Thạc sĩ Quản trị Kinh doanh"],
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop",
+    highlights: [
+      "15 năm trong ngành Thuế Trung ương",
+      "Chủ trì triển khai hóa đơn điện tử toàn quốc",
+      "Thạc sĩ Quản trị Kinh doanh"
+    ],
+    avatar: "https://i.postimg.cc/yk6R1bxQ/2026-04-07-21-34-50.png",
     details: {
       competency: 88,
       experience: 92,
       education: 85,
       performance: 90
     },
-    explanation: "Cán bộ quản lý có chuyên môn sâu và khả năng thực thi xuất sắc. Đã chứng minh được năng lực qua các dự án trọng điểm. Phù hợp để kế nhiệm vị trí Cục trưởng."
+    explanation: "Cán bộ quản lý có năng lực triển khai tốt, hiểu sâu hệ thống. Phù hợp kế nhiệm vị trí Cục trưởng trong tương lai gần.",
+    timeline: [
+      { year: "2021 - Nay", title: "Phó Cục trưởng Cục Thuế", org: "Bộ Tài chính", type: "leadership", highlight: true },
+      { year: "2015 - 2021", title: "Trưởng phòng Công nghệ thông tin", org: "Tổng cục Thuế", type: "leadership", highlight: false },
+      { year: "2008 - 2015", title: "Chuyên viên chính", org: "Tổng cục Thuế", type: "senior", highlight: false },
+    ],
+    aiInsights: {
+      strengths: ["Triển khai dự án công nghệ thuế", "Am hiểu hệ thống hóa đơn điện tử"],
+      potentialRoles: ["Cục trưởng Cục Thuế", "Phó Tổng cục trưởng Tổng cục Thuế"],
+      risk: { level: "Thấp", explanation: "Cần bồi dưỡng thêm về kỹ năng quản trị nhân sự quy mô lớn." }
+    }
   },
   {
     id: 7,
-    name: "Lê Minh Hưng",
+    name: "Lê Minh G",
     position: "Thủ tướng Chính phủ",
     score: 99,
     tags: ["Lãnh đạo cấp cao", "Sẵn sàng (0–6 tháng)", "Tầm nhìn chiến lược"],
-    highlights: ["Thống đốc NHNN trẻ nhất lịch sử", "Kinh nghiệm quản lý cán bộ cấp cao", "Nền tảng kinh tế - tài chính vững chắc"],
+    highlights: [
+      "Kinh nghiệm lãnh đạo cấp cao tại Trung ương Đảng và Chính phủ",
+      "Điều hành chính sách tiền tệ quốc gia",
+      "Nền tảng kinh tế - tài chính vững chắc"
+    ],
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 100,
@@ -308,40 +398,18 @@ const candidates = [
       performance: 99,
       leadership: 100
     },
-    explanation: "Nhà lãnh đạo kỹ trị xuất sắc với nền tảng kinh tế - tài chính - chính sách công vững chắc. Đã kinh qua các vị trí trọng yếu từ Ngân hàng Nhà nước đến Trung ương Đảng, thể hiện năng lực điều hành vĩ mô và thiết kế chính sách nhân sự chiến lược.",
-    age: 56,
-    experience: 33,
-    location: "Hà Nội",
+    explanation: "Nhà lãnh đạo cấp cao với năng lực điều hành vĩ mô và hoạch định chiến lược quốc gia. Hồ sơ toàn diện, uy tín cao, phù hợp với các vị trí lãnh đạo chủ chốt của Đảng và Nhà nước.",
     level: "Cấp Quốc gia",
     timeline: [
       { year: "2026 - Nay", title: "Thủ tướng Chính phủ", org: "Chính phủ nước CHXHCN Việt Nam", type: "leadership", highlight: true },
       { year: "2024 - 2026", title: "Trưởng Ban Tổ chức Trung ương", org: "Ban Chấp hành Trung ương Đảng", type: "leadership", highlight: true },
       { year: "2020 - 2024", title: "Chánh Văn phòng Trung ương Đảng", org: "Ban Chấp hành Trung ương Đảng", type: "leadership", highlight: false },
       { year: "2016 - 2020", title: "Thống đốc", org: "Ngân hàng Nhà nước Việt Nam", type: "leadership", highlight: true },
-      { year: "1993 - 2016", title: "Chuyên viên đến Phó Thống đốc", org: "Ngân hàng Nhà nước Việt Nam", type: "senior", highlight: false },
     ],
-    education: [
-      { degree: "Thạc sĩ Kinh tế", school: "Đại học Saitama, Nhật Bản", year: "1997" },
-      { degree: "Cử nhân Ngoại ngữ / Kinh tế", school: "Đại học tại Việt Nam", year: "1993" }
-    ],
-    achievements: [
-      "Trở thành Thống đốc Ngân hàng Nhà nước trẻ nhất lịch sử ở tuổi 46.",
-      "Quản lý công tác cán bộ cấp cao và thiết kế chính sách nhân sự chiến lược tại Ban Tổ chức Trung ương.",
-      "Lãnh đạo điều hành chính sách tiền tệ, hợp tác quốc tế (IMF, WB, ADB) hiệu quả."
-    ],
-    domains: ["Kinh tế vĩ mô", "Tài chính - Ngân hàng", "Chính sách công", "Tổ chức cán bộ"],
     aiInsights: {
-      strengths: [
-        "Nền tảng kỹ trị vững chắc, kết hợp giữa chuyên môn kinh tế và kinh nghiệm chính trị.",
-        "Năng lực quản lý cán bộ cấp cao và thiết kế chính sách chiến lược.",
-        "Kinh nghiệm làm việc quốc tế sâu rộng (IMF, WB, ADB)."
-      ],
-      pattern: "Lộ trình thăng tiến đột phá từ chuyên gia kỹ trị (NHNN) sang lãnh đạo chính trị cấp cao (Trung ương Đảng, Chính phủ).",
-      potentialRoles: ["Thủ tướng Chính phủ", "Lãnh đạo chủ chốt của Đảng và Nhà nước"],
-      risk: {
-        level: "Rất thấp",
-        explanation: "Hồ sơ công tác xuất sắc, uy tín cao trong Đảng và Nhà nước. Năng lực đã được kiểm chứng qua nhiều vị trí trọng yếu."
-      }
+      strengths: ["Điều hành vĩ mô toàn diện", "Tầm nhìn chiến lược quốc gia"],
+      potentialRoles: ["Lãnh đạo chủ chốt Đảng & Nhà nước", "Ủy viên Bộ Chính trị"],
+      risk: { level: "Rất thấp", explanation: "Bản lĩnh chính trị vững vàng, uy tín tuyệt đối." }
     }
   }
 ];

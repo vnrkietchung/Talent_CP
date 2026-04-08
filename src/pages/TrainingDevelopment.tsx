@@ -16,7 +16,7 @@ export function TrainingDevelopment() {
             <History className="w-4 h-4" />
             <span>Hệ thống quản trị</span>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-slate-900 font-medium">Đào tạo - Bồi dưỡng</span>
+            <span className="text-slate-900 font-medium">Bồi dưỡng & Phát triển</span>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="secondary" className="gap-2 whitespace-nowrap">

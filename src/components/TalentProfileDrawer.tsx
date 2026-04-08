@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, MapPin, Calendar, Briefcase, Award, GraduationCap, TrendingUp, ShieldAlert, Brain, ChevronRight, CheckCircle2, Star } from 'lucide-react';
+import { X, MapPin, Calendar, Briefcase, Award, GraduationCap, TrendingUp, ShieldAlert, ShieldCheck, Brain, ChevronRight, CheckCircle2, Star, Lock, Unlock, AlertTriangle, Info, History, FileText } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip as RechartsTooltip, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { cn } from '@/src/lib/utils';
 import { TrainingDevelopmentContent } from './TrainingDevelopmentContent';
@@ -193,7 +193,7 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
 
           {/* Tabs */}
           <div className="flex gap-6 mt-6 border-b border-slate-200">
-            {['overview', 'performance', 'training'].map((tab) => (
+            {['overview', 'performance', 'training', 'rewards', 'party'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -204,7 +204,9 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
               >
                 {tab === 'overview' && 'Hồ sơ 360°'}
                 {tab === 'performance' && 'Lịch sử đánh giá'}
-                {tab === 'training' && 'Đào tạo - Bồi dưỡng'}
+                {tab === 'training' && 'Đào tạo – bồi dưỡng và theo dõi phát triển cán bộ'}
+                {tab === 'rewards' && 'Khen thưởng & kỷ luật'}
+                {tab === 'party' && 'Liên kết hồ sơ đảng viên'}
                 {activeTab === tab && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 rounded-t-full" />
                 )}
@@ -377,6 +379,192 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
 
           {activeTab === 'training' && (
             <TrainingDevelopmentContent />
+          )}
+
+          {activeTab === 'rewards' && (
+            <div className="flex flex-col gap-6 h-full">
+              {/* (A) TỔNG QUAN & TRẠNG THÁI */}
+              <section className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="md:col-span-2 bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Trạng thái kỷ luật tổng hợp</p>
+                    <p className="text-sm font-bold text-emerald-700">Không có kỷ luật trong thời gian hiệu lực</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">Dữ liệu được xác thực bởi Ban Tổ chức Trung ương</p>
+                  </div>
+                </div>
+                <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Thống kê khen thưởng</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-900">08</span>
+                    <span className="text-xs text-slate-500 font-medium">lần</span>
+                  </div>
+                  <p className="text-[10px] text-slate-500 mt-1">Cấp cao nhất: <span className="font-bold text-indigo-600">Trung ương</span></p>
+                </div>
+                <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Cập nhật gần nhất</p>
+                  <div className="flex items-center gap-2">
+                    <History className="w-4 h-4 text-slate-400" />
+                    <span className="text-sm font-bold text-slate-700">08/04/2024</span>
+                  </div>
+                  <p className="text-[10px] text-slate-500 mt-1">Năm khen thưởng cuối: <span className="font-bold">2023</span></p>
+                </div>
+              </section>
+
+              <div className="grid grid-cols-12 gap-6">
+                {/* Left Column: Rewards & Discipline */}
+                <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
+                  
+                  {/* (B) KHEN THƯỞNG */}
+                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                      <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-amber-500" />
+                        DANH SÁCH KHEN THƯỞNG
+                      </h3>
+                      <button className="text-[10px] font-bold text-indigo-600 hover:underline uppercase tracking-widest">Xem tất cả</button>
+                    </div>
+                    <div className="p-0">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-slate-50/30 border-b border-slate-100">
+                            <th className="px-6 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Năm</th>
+                            <th className="px-6 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hình thức & Cấp ban hành</th>
+                            <th className="px-6 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Số quyết định</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {[
+                            { year: '2023', title: 'Huân chương Lao động hạng Ba', type: 'Huân chương', level: 'Trung ương', decision: '123/QĐ-CTN', reason: 'Thành tích xuất sắc trong công tác 2018-2022' },
+                            { year: '2020', title: 'Bằng khen của Thủ tướng Chính phủ', type: 'Bằng khen', level: 'Trung ương', decision: '456/QĐ-TTg', reason: 'Triển khai hệ thống quản lý tài chính công mới' },
+                            { year: '2021', title: 'Chiến sĩ thi đua cấp Tỉnh', type: 'Danh hiệu', level: 'Tỉnh', decision: '789/QĐ-UBND', reason: 'Hoàn thành xuất sắc nhiệm vụ năm 2021' }
+                          ].map((item, idx) => (
+                            <tr key={idx} className="hover:bg-slate-50/50 transition-colors group">
+                              <td className="px-6 py-4 text-sm font-bold text-slate-400 font-mono">{item.year}</td>
+                              <td className="px-6 py-4">
+                                <div className="flex flex-col gap-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-sm font-bold text-slate-800">{item.title}</span>
+                                    <span className={cn(
+                                      "px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-tighter border",
+                                      item.level === 'Trung ương' ? "bg-amber-50 text-amber-700 border-amber-200" : "bg-blue-50 text-blue-700 border-blue-200"
+                                    )}>
+                                      {item.level}
+                                    </span>
+                                  </div>
+                                  <p className="text-xs text-slate-500 line-clamp-1 italic">Lý do: {item.reason}</p>
+                                </div>
+                              </td>
+                              <td className="px-6 py-4">
+                                <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                                  <FileText className="w-3.5 h-3.5 text-slate-300" />
+                                  {item.decision}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* (C) KỶ LUẬT (TRẠNG THÁI & KIỂM SOÁT) */}
+                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                      <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <ShieldAlert className="w-4 h-4 text-rose-500" />
+                        THÔNG TIN KỶ LUẬT
+                      </h3>
+                      <div className="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase">
+                        <Lock className="w-3 h-3" />
+                        Chế độ bảo mật
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 border-dashed flex flex-col items-center justify-center text-center">
+                        <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+                          <ShieldAlert className="w-6 h-6 text-slate-300" />
+                        </div>
+                        <h4 className="text-sm font-bold text-slate-700 mb-1">Hồ sơ kỷ luật đã hết thời hạn hiệu lực</h4>
+                        <p className="text-xs text-slate-500 max-w-sm mb-4">
+                          Thông tin chi tiết về hành vi kỷ luật đã được ẩn theo quy định về bảo mật hồ sơ cán bộ.
+                        </p>
+                        <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+                          <Unlock className="w-3.5 h-3.5" />
+                          Yêu cầu quyền truy cập chi tiết
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Impact Assessment */}
+                <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                  {/* (D) ĐÁNH GIÁ TÁC ĐỘNG ĐẾN CÔNG TÁC CÁN BỘ */}
+                  <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden h-full">
+                    <div className="px-6 py-4 border-b border-slate-100 bg-indigo-50/30">
+                      <h3 className="text-sm font-bold text-indigo-900 flex items-center gap-2">
+                        <Brain className="w-4 h-4" />
+                        ĐÁNH GIÁ TÁC ĐỘNG
+                      </h3>
+                    </div>
+                    <div className="p-6 space-y-6">
+                      {[
+                        { label: 'Ảnh hưởng đến quy hoạch', status: 'pass', desc: 'Đủ tiêu chuẩn chính trị, đạo đức.' },
+                        { label: 'Ảnh hưởng đến bổ nhiệm', status: 'warning', desc: 'Cần thẩm tra kỹ thành tích gần nhất.' },
+                        { label: 'Ảnh hưởng đến luân chuyển', status: 'pass', desc: 'Không có rào cản kỷ luật.' }
+                      ].map((impact, idx) => (
+                        <div key={idx} className="flex flex-col gap-2 group relative">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-slate-700">{impact.label}</span>
+                            <div className={cn(
+                              "w-3 h-3 rounded-full ring-4",
+                              impact.status === 'pass' ? "bg-emerald-500 ring-emerald-50" : 
+                              impact.status === 'warning' ? "bg-amber-500 ring-amber-50" : "bg-rose-500 ring-rose-50"
+                            )} />
+                          </div>
+                          <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <p className="text-[11px] text-slate-500 leading-relaxed">{impact.desc}</p>
+                          </div>
+                          
+                          {/* Tooltip emulation */}
+                          <div className="absolute -top-8 right-0 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20 shadow-lg">
+                            {impact.status === 'pass' ? 'Không ảnh hưởng' : impact.status === 'warning' ? 'Cần xem xét' : 'Không đủ điều kiện'}
+                          </div>
+                        </div>
+                      ))}
+
+                      <div className="pt-4 border-t border-slate-100">
+                        <div className="flex items-start gap-3 bg-amber-50 p-4 rounded-xl border border-amber-100">
+                          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-xs font-bold text-amber-900 mb-1">Lưu ý tham mưu</p>
+                            <p className="text-[10px] text-amber-700 leading-relaxed">
+                              Cán bộ có 01 kỷ luật đã hết hiệu lực (2015). Tuy nhiên, thành tích khen thưởng từ 2018-2023 rất xuất sắc, thể hiện sự nỗ lực khắc phục và vươn lên.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'party' && (
+            <div className="bg-white rounded-xl p-12 border border-slate-200 shadow-sm h-full flex flex-col items-center justify-center text-center">
+              <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4">
+                <ShieldCheck className="w-8 h-8 text-slate-300" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">Liên kết hồ sơ đảng viên</h3>
+              <p className="text-slate-500 max-w-md">Vui lòng xác thực tài khoản để liên kết dữ liệu với Cơ sở dữ liệu Đảng viên Trung ương.</p>
+              <button className="mt-6 bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold text-sm hover:bg-indigo-700 transition-colors">
+                Xác thực ngay
+              </button>
+            </div>
           )}
         </div>
       </div>
