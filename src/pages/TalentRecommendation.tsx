@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, Search, SlidersHorizontal, CheckCircle2, Zap, Briefcase, GraduationCap, Award, ChevronRight, X, TrendingUp } from 'lucide-react';
+import { Brain, Search, SlidersHorizontal, CheckCircle2, Zap, Briefcase, GraduationCap, Award, ChevronRight, X, TrendingUp, UserPlus, ChevronDown, AlertCircle } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip as RechartsTooltip } from 'recharts';
 import { cn } from '@/src/lib/utils';
 import { TalentProfileDrawer } from '@/src/components/TalentProfileDrawer';
@@ -202,9 +202,9 @@ const candidates = [
     name: "Nguyễn Văn A",
     position: "Phó Giám đốc Sở Tài chính",
     score: 95,
-    tags: ["Tiềm năng cao", "Sẵn sàng bổ nhiệm"],
+    tags: ["Tiềm năng cao", "Sẵn sàng (0–6 tháng)"],
     highlights: ["15 năm kinh nghiệm khu vực công", "Lãnh đạo chuyển đổi số ngành tài chính", "Tiến sĩ Chính sách công"],
-    avatar: "https://i.postimg.cc/0b5SkBjL/2026-04-07-21-33-47.png",
+    avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 95,
       experience: 90,
@@ -218,9 +218,9 @@ const candidates = [
     name: "Trần Thị B",
     position: "Trưởng phòng Ngân sách",
     score: 88,
-    tags: ["Ngôi sao đang lên", "Cần bồi dưỡng thêm"],
+    tags: ["Ngôi sao đang lên", "Sẵn sàng có điều kiện (6–12 tháng)"],
     highlights: ["10 năm kinh nghiệm quản lý cấp phòng", "Quản lý thành công ngân sách 500 tỷ", "Thạc sĩ Kinh tế"],
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 85,
       experience: 80,
@@ -236,7 +236,7 @@ const candidates = [
     score: 82,
     tags: ["Chuyên gia kỹ thuật"],
     highlights: ["20 năm kinh nghiệm chuyên sâu", "Tác giả 5 tiêu chuẩn quốc gia", "Cử nhân Tài chính"],
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 90,
       experience: 95,
@@ -282,9 +282,9 @@ const candidates = [
     name: "Hoàng Văn F",
     position: "Phó Cục trưởng Cục Thuế",
     score: 89,
-    tags: ["Kinh nghiệm thực tiễn", "Đổi mới sáng tạo"],
+    tags: ["Kinh nghiệm thực tiễn", "Nguồn kế cận"],
     highlights: ["15 năm công tác trong ngành Thuế", "Xây dựng hệ thống hóa đơn điện tử", "Thạc sĩ Quản trị Kinh doanh"],
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
       competency: 88,
       experience: 92,
@@ -298,7 +298,7 @@ const candidates = [
     name: "Lê Minh Hưng",
     position: "Thủ tướng Chính phủ",
     score: 99,
-    tags: ["Lãnh đạo cấp cao", "Chuyên gia kỹ trị", "Tầm nhìn chiến lược"],
+    tags: ["Lãnh đạo cấp cao", "Sẵn sàng (0–6 tháng)", "Tầm nhìn chiến lược"],
     highlights: ["Thống đốc NHNN trẻ nhất lịch sử", "Kinh nghiệm quản lý cán bộ cấp cao", "Nền tảng kinh tế - tài chính vững chắc"],
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&h=150&auto=format&fit=crop",
     details: {
@@ -346,11 +346,25 @@ const candidates = [
   }
 ];
 
-export function AITalentRecommendation() {
+export function TalentRecommendation() {
   const [selectedCandidate, setSelectedCandidate] = useState(candidates[0]);
   const [compareList, setCompareList] = useState<number[]>([]);
   const [selectedPosition, setSelectedPosition] = useState(positions[0].positionId);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [openDropdownId, setOpenDropdownId] = useState<number | null>(null);
+  const [titleFilter, setTitleFilter] = useState("");
+  const [competencyFilter, setCompetencyFilter] = useState("");
+
+  const filteredCandidates = candidates.filter(candidate => {
+    const matchesTitle = !titleFilter || 
+      candidate.tags.some(t => t.includes(titleFilter)) || 
+      candidate.highlights.some(h => h.includes(titleFilter));
+    const matchesCompetency = !competencyFilter || 
+      candidate.tags.some(t => t.includes(competencyFilter)) || 
+      candidate.highlights.some(h => h.includes(competencyFilter)) ||
+      candidate.explanation.includes(competencyFilter);
+    return matchesTitle && matchesCompetency;
+  });
 
   const toggleCompare = (id: number) => {
     if (compareList.includes(id)) {
@@ -392,6 +406,36 @@ export function AITalentRecommendation() {
               <option>Cấp Quốc gia</option>
               <option>Cấp Tỉnh/Thành phố</option>
               <option>Cấp Bộ/Ngành</option>
+            </select>
+          </div>
+
+          {/* Title/Award Filter */}
+          <div className="flex flex-col gap-2">
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Danh hiệu (Title/Award)</label>
+            <select 
+              value={titleFilter}
+              onChange={(e) => setTitleFilter(e.target.value)}
+              className="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <option value="">Tất cả</option>
+              <option value="Chiến sĩ thi đua">Chiến sĩ thi đua</option>
+              <option value="Tiềm năng cao">Tiềm năng cao</option>
+              <option value="Chuyên gia">Chuyên gia</option>
+            </select>
+          </div>
+
+          {/* Competency Filter */}
+          <div className="flex flex-col gap-2">
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Năng lực (Competency)</label>
+            <select 
+              value={competencyFilter}
+              onChange={(e) => setCompetencyFilter(e.target.value)}
+              className="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <option value="">Tất cả</option>
+              <option value="Lãnh đạo">Lãnh đạo</option>
+              <option value="Tài chính">Tài chính</option>
+              <option value="Chuyển đổi số">Chuyển đổi số</option>
             </select>
           </div>
 
@@ -449,96 +493,156 @@ export function AITalentRecommendation() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 pb-24">
-          {candidates.map(candidate => (
-            <div 
-              key={candidate.id} 
-              onClick={() => setSelectedCandidate(candidate)}
-              onDoubleClick={() => {
-                setSelectedCandidate(candidate);
-                setIsProfileOpen(true);
-              }}
-              className={cn(
-                "bg-white rounded-xl border p-5 cursor-pointer transition-all duration-200 hover:shadow-md flex gap-5 group",
-                selectedCandidate.id === candidate.id ? "border-indigo-500 shadow-md ring-1 ring-indigo-500" : "border-slate-200"
-              )}
-            >
-              <div className="flex flex-col items-center gap-2">
-                <img 
-                  src={candidate.avatar} 
-                  alt={candidate.name} 
-                  className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:ring-2 hover:ring-indigo-500 transition-all"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedCandidate(candidate);
-                    setIsProfileOpen(true);
-                  }}
-                />
-                <div className="flex flex-col items-center">
-                  <span className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Điểm đánh giá</span>
-                  <span className="text-2xl font-bold text-indigo-600 leading-none">{candidate.score}</span>
-                </div>
-              </div>
-              
-              <div className="flex-1 flex flex-col gap-2">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 
-                      className="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors cursor-pointer hover:underline"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedCandidate(candidate);
-                        setIsProfileOpen(true);
-                      }}
-                    >
-                      {candidate.name}
-                    </h3>
-                    <p className="text-sm text-slate-600 font-medium">{candidate.position}</p>
-                  </div>
-                  <div className="flex gap-2">
-                    {candidate.tags.map(tag => (
-                      <span key={tag} className="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full flex items-center gap-1 border border-indigo-100">
-                        <Zap className="w-3 h-3" />
-                        {tag}
-                      </span>
-                    ))}
+          {filteredCandidates.length > 0 ? (
+            filteredCandidates.map(candidate => (
+              <div 
+                key={candidate.id} 
+                onClick={() => setSelectedCandidate(candidate)}
+                onDoubleClick={() => {
+                  setSelectedCandidate(candidate);
+                  setIsProfileOpen(true);
+                }}
+                className={cn(
+                  "bg-white rounded-xl border p-5 cursor-pointer transition-all duration-200 hover:shadow-md flex gap-5 group",
+                  selectedCandidate.id === candidate.id ? "border-indigo-500 shadow-md ring-1 ring-indigo-500" : "border-slate-200"
+                )}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <img 
+                    src={candidate.avatar} 
+                    alt={candidate.name} 
+                    className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm cursor-pointer hover:ring-2 hover:ring-indigo-500 transition-all"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedCandidate(candidate);
+                      setIsProfileOpen(true);
+                    }}
+                  />
+                  <div className="flex flex-col items-center">
+                    <span className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Điểm đánh giá</span>
+                    <span className="text-2xl font-bold text-indigo-600 leading-none">{candidate.score}</span>
                   </div>
                 </div>
                 
-                <div className="mt-2 flex flex-col gap-1.5">
-                  {candidate.highlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-sm text-slate-600">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                      <span>{highlight}</span>
+                <div className="flex-1 flex flex-col gap-2">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 
+                        className="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors cursor-pointer hover:underline"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedCandidate(candidate);
+                          setIsProfileOpen(true);
+                        }}
+                      >
+                        {candidate.name}
+                      </h3>
+                      <p className="text-sm text-slate-600 font-medium">{candidate.position}</p>
                     </div>
-                  ))}
+                    <div className="flex gap-2 flex-wrap">
+                      {candidate.tags.map(tag => {
+                        const isReadiness = ["Sẵn sàng (0–6 tháng)", "Sẵn sàng có điều kiện (6–12 tháng)", "Nguồn kế cận"].includes(tag);
+                        let tagClass = "bg-indigo-50 text-indigo-700 border-indigo-100";
+                        if (tag === "Sẵn sàng (0–6 tháng)") tagClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+                        if (tag === "Sẵn sàng có điều kiện (6–12 tháng)") tagClass = "bg-amber-50 text-amber-700 border-amber-200";
+                        if (tag === "Nguồn kế cận") tagClass = "bg-blue-50 text-blue-700 border-blue-200";
+
+                        return (
+                          <span key={tag} className={cn("px-2.5 py-1 text-[10px] font-bold rounded-full flex items-center gap-1 border uppercase tracking-wider", tagClass)}>
+                            {isReadiness ? <div className={cn("w-1.5 h-1.5 rounded-full", 
+                              tag === "Sẵn sàng (0–6 tháng)" ? "bg-emerald-500" : 
+                              tag === "Sẵn sàng có điều kiện (6–12 tháng)" ? "bg-amber-500" : "bg-blue-500"
+                            )} /> : <Zap className="w-3 h-3" />}
+                            {tag}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {candidate.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-between items-end border-l border-slate-100 pl-5 ml-2 min-w-[160px]">
+                  <div className="flex flex-col gap-2 w-full">
+                    <div className="relative w-full">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setOpenDropdownId(openDropdownId === candidate.id ? null : candidate.id);
+                        }}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-md text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer whitespace-nowrap"
+                      >
+                        <UserPlus className="w-3.5 h-3.5" />
+                        Đề xuất
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </button>
+                      
+                      {openDropdownId === candidate.id && (
+                        <div className="absolute right-0 top-full mt-1 w-36 bg-white border border-slate-200 rounded-lg shadow-xl z-30 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-100">
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); alert(`Đề xuất quy hoạch: ${candidate.name}`); setOpenDropdownId(null); }}
+                            className="w-full text-left px-3 py-2 text-[11px] font-medium hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition-colors"
+                          >
+                            Quy hoạch
+                          </button>
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); alert(`Đề xuất bổ nhiệm: ${candidate.name}`); setOpenDropdownId(null); }}
+                            className="w-full text-left px-3 py-2 text-[11px] font-medium hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition-colors border-t border-slate-50"
+                          >
+                            Bổ nhiệm
+                          </button>
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); alert(`Đề xuất luân chuyển: ${candidate.name}`); setOpenDropdownId(null); }}
+                            className="w-full text-left px-3 py-2 text-[11px] font-medium hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition-colors border-t border-slate-50"
+                          >
+                            Luân chuyển
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); toggleCompare(candidate.id); }}
+                      className={cn(
+                        "w-full px-3 py-1.5 rounded-md text-xs font-medium transition-colors border cursor-pointer whitespace-nowrap",
+                        compareList.includes(candidate.id) 
+                          ? "bg-indigo-50 text-indigo-700 border-indigo-200" 
+                          : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                      )}
+                    >
+                      {compareList.includes(candidate.id) ? "Đã thêm so sánh" : "So sánh"}
+                    </button>
+                  </div>
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedCandidate(candidate);
+                      setIsProfileOpen(true);
+                    }}
+                    className="flex items-center gap-1 text-[11px] font-medium text-indigo-600 hover:text-indigo-800 transition-colors mt-4"
+                  >
+                    Xem hồ sơ 360° <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
-
-              <div className="flex flex-col justify-between items-end border-l border-slate-100 pl-5 ml-2">
-                <button 
-                  onClick={(e) => { e.stopPropagation(); toggleCompare(candidate.id); }}
-                  className={cn(
-                    "px-3 py-1.5 rounded-md text-xs font-medium transition-colors border cursor-pointer",
-                    compareList.includes(candidate.id) 
-                      ? "bg-indigo-50 text-indigo-700 border-indigo-200" 
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
-                  )}
-                >
-                  {compareList.includes(candidate.id) ? "Đã thêm so sánh" : "So sánh"}
-                </button>
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedCandidate(candidate);
-                    setIsProfileOpen(true);
-                  }}
-                  className="flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
-                >
-                  Xem hồ sơ 360° <ChevronRight className="w-4 h-4" />
-                </button>
+            ))
+          ) : (
+            <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-4">
+              <Search className="w-16 h-16 opacity-20" />
+              <div className="text-center">
+                <p className="font-bold text-slate-600">Không tìm thấy ứng viên phù hợp</p>
+                <p className="text-sm">Vui lòng điều chỉnh lại các tham số lọc</p>
               </div>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Comparison Bottom Bar */}
@@ -569,7 +673,7 @@ export function AITalentRecommendation() {
         )}
       </div>
 
-      {/* Right Panel - AI Explanation */}
+      {/* Right Panel - Phân tích hệ thống */}
       <div className="w-96 bg-white border-l border-slate-200 flex flex-col h-full shadow-sm z-10">
         <div className="p-5 border-b border-slate-200 bg-indigo-50/50">
           <div className="flex items-center gap-2 text-indigo-600 mb-1">
@@ -581,6 +685,34 @@ export function AITalentRecommendation() {
         </div>
         
         <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-6">
+          {/* Đối chiếu tiêu chuẩn chức danh */}
+          <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
+            <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2 uppercase tracking-tight">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              Đối chiếu tiêu chuẩn chức danh
+            </h3>
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-slate-600 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Lý luận chính trị
+                </span>
+                <span className="font-bold text-emerald-600">Đạt</span>
+              </div>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-slate-600 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Quản lý nhà nước
+                </span>
+                <span className="font-bold text-emerald-600">Đạt</span>
+              </div>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-slate-600 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-amber-500" /> Đào tạo chức danh tương đương
+                </span>
+                <span className="font-bold text-amber-600">Chưa đủ</span>
+              </div>
+            </div>
+          </div>
+
           {/* Radar Chart */}
           <div>
             <h3 className="text-sm font-semibold text-slate-800 mb-4 flex items-center gap-2">
@@ -605,7 +737,7 @@ export function AITalentRecommendation() {
             </div>
           </div>
 
-          {/* AI Explanation Text */}
+          {/* Phân tích lý do đề xuất */}
           <div>
             <h3 className="text-sm font-semibold text-slate-800 mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-amber-500" />

@@ -10,8 +10,8 @@ const profileData = {
   org: "UBND Thành phố Hà Nội",
   experience: 20,
   level: "Cấp Tỉnh/Thành phố",
-  tags: ["Lãnh đạo chiến lược", "Quản lý", "Tiềm năng cao"],
-  avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop",
+  tags: ["Lãnh đạo chiến lược", "Quản lý", "Sẵn sàng (0–6 tháng)"],
+  avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
 };
 
 const historyData = [
@@ -88,21 +88,21 @@ const hierarchyData = {
   name: "Trần Văn X",
   position: "Chủ tịch UBND Thành phố",
   level: "top",
-  avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop",
+  avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop",
   children: [
     {
       name: "Lê Thị Y",
       position: "Giám đốc Sở Tài chính",
       level: "middle",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop",
+      avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop",
       children: [
         {
           name: "Nguyễn Văn A",
           position: "Phó Giám đốc Sở Tài chính",
           level: "selected",
-          avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop",
+          avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
           children: [
-            { name: "Phạm Văn Z", position: "Trưởng phòng Ngân sách", level: "bottom", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&h=150&auto=format&fit=crop" },
+            { name: "Phạm Văn Z", position: "Trưởng phòng Ngân sách", level: "bottom", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop" },
             { name: "Hoàng Thị W", position: "Trưởng phòng Kế toán", level: "bottom", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=150&h=150&auto=format&fit=crop" }
           ]
         }
@@ -142,11 +142,23 @@ export function RelationshipNetwork() {
 
           {/* Tags */}
           <div className="flex flex-wrap justify-center gap-2">
-            {profileData.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full border border-slate-200">
-                {tag}
-              </span>
-            ))}
+            {profileData.tags.map(tag => {
+              const isReadiness = ["Sẵn sàng (0–6 tháng)", "Sẵn sàng có điều kiện (6–12 tháng)", "Nguồn kế cận"].includes(tag);
+              let tagClass = "bg-slate-100 text-slate-700 border-slate-200";
+              if (tag === "Sẵn sàng (0–6 tháng)") tagClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+              if (tag === "Sẵn sàng có điều kiện (6–12 tháng)") tagClass = "bg-amber-50 text-amber-700 border-amber-200";
+              if (tag === "Nguồn kế cận") tagClass = "bg-blue-50 text-blue-700 border-blue-200";
+
+              return (
+                <span key={tag} className={cn("px-3 py-1 text-[10px] font-bold rounded-full border uppercase tracking-wider flex items-center gap-1.5", tagClass)}>
+                  {isReadiness && <div className={cn("w-1.5 h-1.5 rounded-full", 
+                    tag === "Sẵn sàng (0–6 tháng)" ? "bg-emerald-500" : 
+                    tag === "Sẵn sàng có điều kiện (6–12 tháng)" ? "bg-amber-500" : "bg-blue-500"
+                  )} />}
+                  {tag}
+                </span>
+              );
+            })}
           </div>
 
           <hr className="border-slate-100" />
@@ -225,7 +237,7 @@ export function RelationshipNetwork() {
       {/* Right Panel - Management History & Insights */}
       <div className="w-[400px] bg-white border-l border-slate-200 flex flex-col h-full shadow-sm z-10 shrink-0">
         
-        {/* AI Insights Section */}
+        {/* Insights Section */}
         <div className="p-6 border-b border-slate-200 bg-indigo-900 text-white relative overflow-hidden shrink-0">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <Brain className="w-24 h-24" />

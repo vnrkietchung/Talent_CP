@@ -28,24 +28,24 @@ const talentGaps = [
 
 const aiRecommendations = {
   "POS-001": [
-    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", score: 95, tags: ["Sẵn sàng ngay", "Tiềm năng cao"], avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["15 năm kinh nghiệm", "Lãnh đạo chuyển đổi số"], details: { competency: 95, experience: 90, education: 100, performance: 95 }, explanation: "Ứng viên thể hiện năng lực lãnh đạo xuất sắc trong các sáng kiến chuyển đổi số." },
-    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", score: 88, tags: ["Sẵn sàng trong 1-3 năm"], avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Quản lý ngân sách 500 tỷ", "Thạc sĩ Kinh tế"], details: { competency: 85, experience: 80, education: 90, performance: 95 }, explanation: "Nền tảng vận hành vững chắc với kết quả đánh giá hiệu suất xuất sắc gần đây." },
-    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", score: 82, tags: ["Chuyên gia kỹ thuật"], avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Tác giả 5 tiêu chuẩn", "Cử nhân Tài chính"], details: { competency: 90, experience: 95, education: 80, performance: 85 }, explanation: "Chuyên môn kỹ thuật vượt trội trong lĩnh vực." },
+    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", score: 95, tags: ["Sẵn sàng (0–6 tháng)", "Tiềm năng cao"], avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["15 năm kinh nghiệm", "Lãnh đạo chuyển đổi số", "Chiến sĩ thi đua"], details: { competency: 95, experience: 90, education: 100, performance: 95 }, explanation: "Ứng viên thể hiện năng lực lãnh đạo xuất sắc trong các sáng kiến chuyển đổi số." },
+    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", score: 88, tags: ["Sẵn sàng có điều kiện (6–12 tháng)", "Tài chính"], avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Quản lý ngân sách 500 tỷ", "Thạc sĩ Kinh tế", "Chiến sĩ thi đua"], details: { competency: 85, experience: 80, education: 90, performance: 95 }, explanation: "Nền tảng vận hành vững chắc với kết quả đánh giá hiệu suất xuất sắc gần đây." },
+    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", score: 82, tags: ["Nguồn kế cận", "Chuyển đổi số"], avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop", highlights: ["Tác giả 5 tiêu chuẩn", "Cử nhân Tài chính"], details: { competency: 90, experience: 95, education: 80, performance: 85 }, explanation: "Chuyên môn kỹ thuật vượt trội trong lĩnh vực Chuyển đổi số." },
   ]
 };
 
 const pipelineData = {
   readyNow: [
-    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 1, name: "Nguyễn Văn A", position: "Phó Giám đốc Sở Tài chính", avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop" },
     { id: 7, name: "Lê Minh Hưng", position: "Thủ tướng Chính phủ", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&h=150&auto=format&fit=crop" },
   ],
   ready1to3: [
-    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 2, name: "Trần Thị B", position: "Trưởng phòng Ngân sách", avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=150&h=150&auto=format&fit=crop" },
     { id: 5, name: "Lê Thị E", position: "Cục trưởng Cục Thuế", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=150&h=150&auto=format&fit=crop" },
   ],
   notReady: [
-    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop" },
-    { id: 6, name: "Hoàng Văn F", position: "Phó Cục trưởng Cục Thuế", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 3, name: "Lê Hoàng C", position: "Chuyên viên Cao cấp", avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=150&h=150&auto=format&fit=crop" },
+    { id: 6, name: "Hoàng Văn F", position: "Phó Cục trưởng Cục Thuế", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&h=150&auto=format&fit=crop" },
   ]
 };
 
@@ -60,10 +60,14 @@ export function Dashboard() {
   const [selectedGap, setSelectedGap] = useState<string | null>(null);
   const [selectedCandidate, setSelectedCandidate] = useState<any | null>(null);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [titleFilter, setTitleFilter] = useState("");
+  const [competencyFilter, setCompetencyFilter] = useState("");
 
   const handleViewRecommendations = (id: string) => {
     setSelectedGap(id);
     setSelectedCandidate(null);
+    setTitleFilter("");
+    setCompetencyFilter("");
     setTimeout(() => {
       document.getElementById('recommendations-section')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
@@ -188,18 +192,61 @@ export function Dashboard() {
         </div>
       </section>
 
-      {/* 3. AI Recommendation Preview */}
+      {/* 3. Recommendation Preview */}
       {selectedGap && (
         <section id="recommendations-section" className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
               <Target className="w-6 h-6 text-indigo-600" />
               Đề xuất ứng viên kế nhiệm: {talentGaps.find(g => g.id === selectedGap)?.title}
             </h2>
+
+            <div className="flex flex-wrap gap-3 items-center bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-400 uppercase">Lọc theo:</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <label className="text-xs font-semibold text-slate-600">Danh hiệu</label>
+                <select 
+                  value={titleFilter} 
+                  onChange={(e) => setTitleFilter(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Tất cả</option>
+                  <option value="Chiến sĩ thi đua">Chiến sĩ thi đua</option>
+                  <option value="Tiềm năng cao">Tiềm năng cao</option>
+                  <option value="Chuyên gia">Chuyên gia</option>
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <label className="text-xs font-semibold text-slate-600">Năng lực</label>
+                <select 
+                  value={competencyFilter} 
+                  onChange={(e) => setCompetencyFilter(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="">Tất cả</option>
+                  <option value="Lãnh đạo">Lãnh đạo</option>
+                  <option value="Tài chính">Tài chính</option>
+                  <option value="Chuyển đổi số">Chuyển đổi số</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {(aiRecommendations[selectedGap as keyof typeof aiRecommendations] || []).map((candidate) => (
+            {(aiRecommendations[selectedGap as keyof typeof aiRecommendations] || [])
+              .filter(candidate => {
+                const matchesTitle = !titleFilter || 
+                  candidate.tags.some(t => t.includes(titleFilter)) || 
+                  candidate.highlights.some(h => h.includes(titleFilter));
+                const matchesCompetency = !competencyFilter || 
+                  candidate.tags.some(t => t.includes(competencyFilter)) || 
+                  candidate.highlights.some(h => h.includes(competencyFilter)) ||
+                  candidate.explanation.includes(competencyFilter);
+                return matchesTitle && matchesCompetency;
+              })
+              .map((candidate) => (
               <div key={candidate.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex flex-col gap-4 hover:border-indigo-300 hover:shadow-md transition-all">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
@@ -216,16 +263,26 @@ export function Dashboard() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {candidate.tags.map(tag => (
-                    <span key={tag} className={cn(
-                      "px-2 py-1 text-xs font-semibold rounded-md border",
-                      tag === "Sẵn sàng ngay" ? "bg-emerald-50 text-emerald-700 border-emerald-200" :
-                      tag === "Tiềm năng cao" ? "bg-purple-50 text-purple-700 border-purple-200" :
-                      "bg-blue-50 text-blue-700 border-blue-200"
-                    )}>
-                      {tag}
-                    </span>
-                  ))}
+                  {candidate.tags.map(tag => {
+                    const isReadiness = ["Sẵn sàng (0–6 tháng)", "Sẵn sàng có điều kiện (6–12 tháng)", "Nguồn kế cận"].includes(tag);
+                    let tagClass = "bg-indigo-50 text-indigo-700 border-indigo-100";
+                    if (tag === "Sẵn sàng (0–6 tháng)") tagClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+                    if (tag === "Sẵn sàng có điều kiện (6–12 tháng)") tagClass = "bg-amber-50 text-amber-700 border-amber-200";
+                    if (tag === "Nguồn kế cận") tagClass = "bg-blue-50 text-blue-700 border-blue-200";
+
+                    return (
+                      <span key={tag} className={cn(
+                        "px-2 py-1 text-[10px] font-bold rounded-md border uppercase tracking-wider flex items-center gap-1",
+                        tagClass
+                      )}>
+                        {isReadiness && <div className={cn("w-1 h-1 rounded-full", 
+                          tag === "Sẵn sàng (0–6 tháng)" ? "bg-emerald-500" : 
+                          tag === "Sẵn sàng có điều kiện (6–12 tháng)" ? "bg-amber-500" : "bg-blue-500"
+                        )} />}
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
 
                 <ul className="space-y-1.5 mt-2 flex-1">
@@ -268,7 +325,7 @@ export function Dashboard() {
             {/* Ready Now */}
             <div>
               <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-500" /> Sẵn sàng ngay
+                <div className="w-2 h-2 rounded-full bg-emerald-500" /> Sẵn sàng (0–6 tháng)
               </h3>
               <div className="flex flex-wrap gap-3">
                 {pipelineData.readyNow.map(c => (
@@ -286,7 +343,7 @@ export function Dashboard() {
             {/* Ready 1-3 Years */}
             <div>
               <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-amber-500" /> Sẵn sàng trong 1-3 năm
+                <div className="w-2 h-2 rounded-full bg-amber-500" /> Sẵn sàng có điều kiện (6–12 tháng)
               </h3>
               <div className="flex flex-wrap gap-3">
                 {pipelineData.ready1to3.map(c => (
@@ -303,8 +360,8 @@ export function Dashboard() {
 
             {/* Not Ready */}
             <div>
-              <h3 className="text-sm font-bold text-rose-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-rose-500" /> Cần bồi dưỡng thêm
+              <h3 className="text-sm font-bold text-blue-700 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-blue-500" /> Nguồn kế cận
               </h3>
               <div className="flex flex-wrap gap-3">
                 {pipelineData.notReady.map(c => (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { X, MapPin, Calendar, Briefcase, Award, GraduationCap, TrendingUp, ShieldAlert, Brain, ChevronRight, CheckCircle2, Star } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip as RechartsTooltip, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { cn } from '@/src/lib/utils';
+import { TrainingDevelopmentContent } from './TrainingDevelopmentContent';
 
 interface TalentProfileDrawerProps {
   isOpen: boolean;
@@ -20,7 +21,7 @@ const defaultProfileData = {
   location: "Hà Nội",
   tags: ["Lãnh đạo chiến lược", "Chuyên gia kỹ trị", "Tầm ảnh hưởng cao"],
   summary: "Cán bộ quản lý cấp cao với 20 năm kinh nghiệm trong lĩnh vực tài chính công. Có năng lực hoạch định chính sách vĩ mô và lãnh đạo chuyển đổi số toàn diện.",
-  avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=150&h=150&auto=format&fit=crop",
+  avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=150&h=150&auto=format&fit=crop",
   
   timeline: [
     { year: "2020 - Nay", title: "Phó Giám đốc Sở", org: "Sở Tài chính Hà Nội", type: "leadership", highlight: true },
@@ -170,11 +171,23 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
               {profileData.summary}
             </p>
             <div className="flex flex-wrap gap-2 justify-end max-w-md">
-              {profileData.tags.map(tag => (
-                <span key={tag} className="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full border border-indigo-100">
-                  {tag}
-                </span>
-              ))}
+              {profileData.tags.map(tag => {
+                const isReadiness = ["Sẵn sàng (0–6 tháng)", "Sẵn sàng có điều kiện (6–12 tháng)", "Nguồn kế cận"].includes(tag);
+                let tagClass = "bg-indigo-50 text-indigo-700 border-indigo-100";
+                if (tag === "Sẵn sàng (0–6 tháng)") tagClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+                if (tag === "Sẵn sàng có điều kiện (6–12 tháng)") tagClass = "bg-amber-50 text-amber-700 border-amber-200";
+                if (tag === "Nguồn kế cận") tagClass = "bg-blue-50 text-blue-700 border-blue-200";
+
+                return (
+                  <span key={tag} className={cn("px-3 py-1 text-[10px] font-bold rounded-full border uppercase tracking-wider flex items-center gap-1.5", tagClass)}>
+                    {isReadiness && <div className={cn("w-1.5 h-1.5 rounded-full", 
+                      tag === "Sẵn sàng (0–6 tháng)" ? "bg-emerald-500" : 
+                      tag === "Sẵn sàng có điều kiện (6–12 tháng)" ? "bg-amber-500" : "bg-blue-500"
+                    )} />}
+                    {tag}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -191,7 +204,7 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
               >
                 {tab === 'overview' && 'Hồ sơ 360°'}
                 {tab === 'performance' && 'Lịch sử đánh giá'}
-                {tab === 'training' && 'Đào tạo & Kỷ luật'}
+                {tab === 'training' && 'Đào tạo - Bồi dưỡng'}
                 {activeTab === tab && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 rounded-t-full" />
                 )}
@@ -282,7 +295,7 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
                 </div>
               </div>
 
-              {/* Right Panel - AI Insights */}
+              {/* Right Panel - Insights */}
               <div className="col-span-4 flex flex-col gap-6">
                 <div className="bg-indigo-900 rounded-xl p-6 shadow-lg text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -363,9 +376,7 @@ export function TalentProfileDrawer({ isOpen, onClose, candidate }: TalentProfil
           )}
 
           {activeTab === 'training' && (
-            <div className="flex items-center justify-center h-full text-slate-500">
-              Chưa có dữ liệu kỷ luật. Quá trình đào tạo xem tại tab Tổng quan.
-            </div>
+            <TrainingDevelopmentContent />
           )}
         </div>
       </div>

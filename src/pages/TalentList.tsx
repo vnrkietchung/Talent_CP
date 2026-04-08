@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Search, MoreVertical, RefreshCw, Settings, Filter, Edit, Trash2, Copy, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 
 const mockData = [
-  { id: 1, code: "NV001", name: "Nguyễn Văn A", email: "nva@gov.vn", position: "Phó Giám đốc Sở Tài chính", department: "Sở Tài chính Hà Nội", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=100&h=100&auto=format&fit=crop" },
-  { id: 2, code: "NV002", name: "Trần Thị B", email: "ttb@gov.vn", position: "Trưởng phòng Ngân sách", department: "Sở Tài chính Hà Nội", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&h=100&auto=format&fit=crop" },
-  { id: 3, code: "NV003", name: "Lê Văn C", email: "lvc@gov.vn", position: "Chuyên gia", department: "Bộ Tài chính", status: "Nghỉ phép", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&h=100&auto=format&fit=crop" },
+  { id: 1, code: "NV001", name: "Nguyễn Văn A", email: "nva@gov.vn", position: "Phó Giám đốc Sở Tài chính", department: "Sở Tài chính Hà Nội", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=100&h=100&auto=format&fit=crop" },
+  { id: 2, code: "NV002", name: "Trần Thị B", email: "ttb@gov.vn", position: "Trưởng phòng Ngân sách", department: "Sở Tài chính Hà Nội", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=100&h=100&auto=format&fit=crop" },
+  { id: 3, code: "NV003", name: "Lê Văn C", email: "lvc@gov.vn", position: "Chuyên gia", department: "Bộ Tài chính", status: "Nghỉ phép", avatar: "https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=100&h=100&auto=format&fit=crop" },
   { id: 4, code: "NV004", name: "Phạm Thị D", email: "ptd@gov.vn", position: "Phó Vụ trưởng", department: "Bộ Ngoại giao", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=100&h=100&auto=format&fit=crop" },
-  { id: 5, code: "NV005", name: "Hoàng Văn E", email: "hve@gov.vn", position: "Chuyên viên", department: "Bộ Nội vụ", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=100&h=100&auto=format&fit=crop" },
+  { id: 5, code: "NV005", name: "Hoàng Văn E", email: "hve@gov.vn", position: "Chuyên viên", department: "Bộ Nội vụ", status: "Đang làm việc", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&h=100&auto=format&fit=crop" },
 ];
 
 export function TalentList() {

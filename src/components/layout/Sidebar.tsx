@@ -1,5 +1,5 @@
 import { cn } from "@/src/lib/utils";
-import { LayoutDashboard, Users, Settings as SettingsIcon, ChevronLeft, ChevronRight, Award, BrainCircuit, Network } from "lucide-react";
+import { LayoutDashboard, Users, Settings as SettingsIcon, ChevronLeft, ChevronRight, Award, BrainCircuit, Network, History, GraduationCap } from "lucide-react";
 
 interface SidebarProps {
   activePath: string;
@@ -13,8 +13,10 @@ export function Sidebar({ activePath, onNavigate, collapsed, setCollapsed }: Sid
     { id: "dashboard", label: "Tổng quan", icon: LayoutDashboard },
     { id: "talents", label: "Nhân tài", icon: Users },
     { id: "evaluations", label: "Đánh giá", icon: Award },
-    { id: "ai-recommendation", label: "Đề xuất nhân tài", icon: BrainCircuit },
+    { id: "talent-recommendation", label: "Đề xuất nhân tài", icon: BrainCircuit },
     { id: "relationship-network", label: "Mạng lưới quan hệ", icon: Network },
+    { id: "work-history", label: "Lịch sử công tác", icon: History },
+    { id: "training-development", label: "Đào tạo - Bồi dưỡng", icon: GraduationCap },
   ];
 
   return (
